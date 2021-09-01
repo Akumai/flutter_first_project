@@ -9,6 +9,65 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedIndex = 0;
+
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: All',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Course',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: ONS',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Fast',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        body: Column(
+          children: [
+            Row(children: [Text("Header?"), Icon(Icons.verified_user)]),
+            _widgetOptions.elementAt(_selectedIndex)
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(label: 'All', icon: Icon(Icons.home)),
+            BottomNavigationBarItem(label: 'Course', icon: Icon(Icons.school)),
+            BottomNavigationBarItem(label: 'ONS', icon: Icon(Icons.play_arrow)),
+            BottomNavigationBarItem(label: 'Fast', icon: Icon(Icons.flash_on))
+          ],
+          onTap: _onItemTapped,
+        ));
+  }
+}
+
+class RandomWords extends StatefulWidget {
+  const RandomWords({Key? key}) : super(key: key);
+
+  @override
+  _RandomWordsState createState() => _RandomWordsState();
+}
+
+class _RandomWordsState extends State<RandomWords> {
   final _suggestions = <WordPair>[];
   final _saved = <WordPair>{};
   final _biggerFont = const TextStyle(fontSize: 18.0);
@@ -16,12 +75,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Startup name generator'),
-        actions: [IconButton(icon: Icon(Icons.list), onPressed: _pushSaved)],
-      ),
-      body: _buildSuggestions(),
-    );
+        appBar: AppBar(
+          title: Text('Startup name generator'),
+          actions: [IconButton(icon: Icon(Icons.list), onPressed: _pushSaved)],
+        ),
+        body: _buildSuggestions());
   }
 
   void _pushSaved() {
