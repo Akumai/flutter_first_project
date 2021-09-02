@@ -1,8 +1,5 @@
 import 'dart:math';
 
-import 'package:flutter_svg/svg.dart';
-import 'package:meta/meta.dart';
-
 const loremIpsum =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
 
@@ -28,7 +25,7 @@ class CourseTemplate {
   CourseTemplate(int index) {
     imgPath = randomImage();
     header = someHeader(index);
-    description = randomDescription(index * 3);
+    description = randomDescription(index * 100);
   }
 
   static String someHeader(int index) {
@@ -37,7 +34,10 @@ class CourseTemplate {
 
   /// Get description with [maxLength], minimal would be [defaultDescription]
   static String randomDescription(int maxLength) {
-    int randomLength = max(0, maxLength - defaultDescription.length);
+    int randomLength = min(
+      defaultDescription.length,
+      max(0, maxLength - defaultDescription.length),
+    );
     String randomDesc = loremIpsum.substring(0, randomLength);
     return "$defaultDescription $randomDesc";
   }

@@ -12,13 +12,14 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
 
   static const List<Widget> _widgetOptions = <Widget>[
-    const CoursesPage(optionStyle: optionStyle),
-    const Text('Index 1: Course', style: optionStyle),
-    const Text('Index 2: ONS', style: optionStyle),
-    const Text('Index 3: Fast', style: optionStyle),
+    RandomCourses(amount: 9),
+    RandomCourses(amount: 15),
+    RandomCourses(),
+    RandomCourses(amount: 30),
   ];
 
   void _onItemTapped(int index) {
@@ -34,18 +35,24 @@ class _HomePageState extends State<HomePage> {
           children: [
             const HeaderWidget(),
             Expanded(
-              child: SingleChildScrollView(
-                child: _widgetOptions.elementAt(_selectedIndex),
+              // child: _widgetOptions.elementAt(_selectedIndex),
+              child: IndexedStack(
+                index: _selectedIndex,
+                children: _widgetOptions,
               ),
             ),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(label: 'All', icon: Icon(Icons.all_inclusive)),
-            BottomNavigationBarItem(label: 'Course', icon: Icon(Icons.cases_rounded)),
-            BottomNavigationBarItem(label: 'ONS', icon: Icon(Icons.play_circle)),
-            BottomNavigationBarItem(label: 'Fast', icon: Icon(Icons.offline_bolt)),
+            BottomNavigationBarItem(
+                label: 'All', icon: Icon(Icons.all_inclusive)),
+            BottomNavigationBarItem(
+                label: 'Course', icon: Icon(Icons.cases_rounded)),
+            BottomNavigationBarItem(
+                label: 'ONS', icon: Icon(Icons.play_circle)),
+            BottomNavigationBarItem(
+                label: 'Fast', icon: Icon(Icons.offline_bolt)),
           ],
           onTap: _onItemTapped,
           unselectedItemColor: Colors.grey[600],

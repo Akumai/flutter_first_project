@@ -10,7 +10,6 @@ class MyApp extends StatelessWidget {
       title: 'Startup Name Generator',
       home: HomePage(),
       debugShowCheckedModeBanner: false,
-      debugShowMaterialGrid: true,
     );
   }
 }
