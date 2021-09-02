@@ -9,6 +9,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Startup Name Generator',
       home: HomePage(),
+      debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: true,
     );
   }
 }

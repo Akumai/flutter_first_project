@@ -44,11 +44,11 @@ class _HomePageState extends State<HomePage> {
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(label: 'All', icon: Icon(Icons.all_inclusive)),
             BottomNavigationBarItem(label: 'Course', icon: Icon(Icons.cases_rounded)),
-            BottomNavigationBarItem(label: 'ONS', icon: Icon(Icons.play_arrow)),
+            BottomNavigationBarItem(label: 'ONS', icon: Icon(Icons.play_circle)),
             BottomNavigationBarItem(label: 'Fast', icon: Icon(Icons.offline_bolt)),
           ],
           onTap: _onItemTapped,
-          unselectedItemColor: Colors.grey,
+          unselectedItemColor: Colors.grey[600],
           selectedItemColor: Colors.teal[300],
           showUnselectedLabels: true,
           currentIndex: _selectedIndex,

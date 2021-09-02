@@ -11,8 +11,9 @@ class CoursesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String wordPairs = generateWordPairs().take(100).join(" ");
     return Text(
-      'Index 0: All' + generateWordPairs().take(100).join(" "),
+      'Index 0: All $wordPairs',
       style: optionStyle,
     );
   }

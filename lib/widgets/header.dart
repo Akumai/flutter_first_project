@@ -10,15 +10,15 @@ class HeaderWidget extends StatelessWidget {
     return Container(
         color: Colors.green,
         child: Row(children: [
-          Text("Header?", style: TextStyle(fontSize: 30)),
+          Text("Header?", style: TextStyle(fontSize: 30, color: Colors.white)),
           Expanded(child: Container()),
-          Container(
-            padding: const EdgeInsets.all(5),
-            child: CircleAvatar(
-              radius: 40,
-              backgroundColor: Colors.transparent,
-              backgroundImage: AssetImage("img/011-educator.png"),
+          IconButton(
+            icon: Icon(
+              Icons.supervised_user_circle,
+              size: 24,
+              color: Colors.white,
             ),
+            onPressed: () {},
           ),
         ]));
   }
