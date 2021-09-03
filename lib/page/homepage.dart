@@ -15,8 +15,8 @@ class _HomePageState extends State<HomePage> {
   static const List<Widget> _screens = <Widget>[
     RandomCourses(amount: 9),
     RandomCourses(amount: 15),
-    RandomCourses(),
-    RandomCourses(amount: 30),
+    RandomCourses(amount: 150),
+    RandomCourses(amount: 300),
   ];
 
   void _onItemTapped(int index) {

@@ -34,11 +34,9 @@ class CourseTemplate {
 
   /// Get description with [maxLength], minimal would be [defaultDescription]
   static String randomDescription(int maxLength) {
-    int randomLength = min(
-      defaultDescription.length,
-      max(0, maxLength - defaultDescription.length),
-    );
-    String randomDesc = loremIpsum.substring(0, randomLength);
+    int randomLength = max(0, maxLength - defaultDescription.length);
+    String randomDesc =
+        loremIpsum.substring(0, min(loremIpsum.length, randomLength));
     return "$defaultDescription $randomDesc";
   }
 
