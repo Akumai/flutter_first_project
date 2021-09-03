@@ -19,7 +19,6 @@ class RandomCourses extends StatelessWidget {
               topRight: Radius.circular(20),
             ),
             color: Theme.of(context).canvasColor),
-        // color: Colors.white),
         child: ListView.builder(
           itemCount: _courses.length * 2 - 1,
           padding: const EdgeInsets.all(16.0),

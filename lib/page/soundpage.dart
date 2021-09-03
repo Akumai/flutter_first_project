@@ -52,8 +52,8 @@ class _PlayerButton extends StatelessWidget {
         StreamBuilder<PlayerState>(
           stream: _player.playerStateStream,
           builder: (_, snapshot) {
-            final playerState = snapshot.data;
-            return _playPauseButton(playerState!);
+            return _playPauseButton(
+                snapshot.data?.processingState ?? ProcessingState.ready);
           },
         ),
         Expanded(child: Container())
@@ -61,8 +61,7 @@ class _PlayerButton extends StatelessWidget {
     );
   }
 
-  Widget _playPauseButton(PlayerState playerState) {
-    final processingState = playerState.processingState;
+  Widget _playPauseButton(ProcessingState processingState) {
     if (processingState == ProcessingState.loading ||
         processingState == ProcessingState.buffering) {
       return Container(
