@@ -32,7 +32,6 @@ class _HomePageState extends State<HomePage> {
           children: [
             const HeaderWidget(),
             Expanded(
-              // child: _widgetOptions.elementAt(_selectedIndex),
               child: IndexedStack(
                 index: _selectedIndex,
                 children: _screens,
