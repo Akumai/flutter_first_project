@@ -29,7 +29,11 @@ class RandomCourses extends StatelessWidget {
             if (courseIndex >= _courses.length) {
               return Container();
             }
-            return _buildRow(_courses[courseIndex]);
+            return InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed("/soundpage");
+                },
+                child: _buildRow(_courses[courseIndex]));
           },
         ),
       ),
@@ -39,7 +43,6 @@ class RandomCourses extends StatelessWidget {
   Widget _buildRow(CourseTemplate course) {
     return Row(
       children: [
-        // Text(course.imgPath),
         SvgPicture.asset(course.imgPath, width: 40),
         SizedBox(width: 16),
         Expanded(
@@ -61,4 +64,6 @@ class RandomCourses extends StatelessWidget {
       ],
     );
   }
+
+  _showSoundScreen(BuildContext context) {}
 }
