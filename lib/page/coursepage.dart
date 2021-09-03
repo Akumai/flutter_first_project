@@ -64,6 +64,4 @@ class RandomCourses extends StatelessWidget {
       ],
     );
   }
-
-  _showSoundScreen(BuildContext context) {}
 }
